@@ -37,7 +37,7 @@ public:
                 transform.position = glm::vec3(x, 0.5f, z);
 
                 auto material = std::make_shared<Klein::Material>();
-                // Random-ish colors for blocks
+
                 material->albedo = glm::vec3(
                     0.5f + (x + 5) * 0.05f,
                     0.3f + (z + 5) * 0.05f,
@@ -52,7 +52,7 @@ public:
             }
         }
 
-        // Add a directional light (sun)
+        // Directional light (sun)
         auto sun = scene->CreateEntity("Sun");
         auto& sunTransform = sun.GetComponent<Klein::TransformComponent>();
         sunTransform.position = glm::vec3(0.0f, 10.0f, 0.0f);
@@ -106,12 +106,12 @@ public:
             transform.position.y -= moveSpeed;
         }
 
-        // ESC to close
+
         if (window->IsKeyPressed(GLFW_KEY_ESCAPE)) {
             window->Close();
         }
 
-        // Rotate blocks for fun
+
 
         auto blocks = scene->GetEntitiesWithComponent<Klein::MeshRendererComponent>();
         for (auto& block : blocks) {
@@ -123,8 +123,7 @@ public:
     }
 
     void OnUI() override {
-        // ImGui UI here if you want
-        // Can show render stats, entity inspector, etc.
+
     }
 };
 
